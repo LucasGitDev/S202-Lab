@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "64174e368706e8ada99b88eb"
+        },
+        "id": 213,
+        "name": {
+            "english": "Shuckle",
+            "japanese": "\u30c4\u30dc\u30c4\u30dc",
+            "chinese": "\u58f6\u58f6",
+            "french": "Caratroc"
+        },
+        "type": [
+            "Bug",
+            "Rock"
+        ],
+        "base": {
+            "HP": 20,
+            "Attack": 10,
+            "Defense": 230,
+            "Sp. Attack": 10,
+            "Sp. Defense": 230,
+            "Speed": 5
+        }
+    }
+]

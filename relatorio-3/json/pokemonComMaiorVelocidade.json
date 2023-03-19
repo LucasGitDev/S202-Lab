@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "64174e368706e8ada99b8939"
+        },
+        "id": 291,
+        "name": {
+            "english": "Ninjask",
+            "japanese": "\u30c6\u30c3\u30ab\u30cb\u30f3",
+            "chinese": "\u94c1\u9762\u5fcd\u8005",
+            "french": "Ninjask"
+        },
+        "type": [
+            "Bug",
+            "Flying"
+        ],
+        "base": {
+            "HP": 61,
+            "Attack": 90,
+            "Defense": 45,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 160
+        }
+    }
+]

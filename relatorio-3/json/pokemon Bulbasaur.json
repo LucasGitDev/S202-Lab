@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "64174e368706e8ada99b8817"
+        },
+        "id": 1,
+        "name": {
+            "english": "Bulbasaur",
+            "japanese": "\u30d5\u30b7\u30ae\u30c0\u30cd",
+            "chinese": "\u5999\u86d9\u79cd\u5b50",
+            "french": "Bulbizarre"
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ],
+        "base": {
+            "HP": 45,
+            "Attack": 49,
+            "Defense": 49,
+            "Sp. Attack": 65,
+            "Sp. Defense": 65,
+            "Speed": 45
+        }
+    }
+]
