@@ -1,0 +1,73 @@
+Q1:
+
+1:
+MATCH (n) RETURN (n)
+
+2: 
+MATCH (g:Game) WHERE g.ano > 2012 RETURN g.titulo, g.genero, g.ano
+
+3: 
+MATCH (g:Game) WHERE g.genero = 'Terror' RETURN g.titulo, g.genero, g.ano
+
+4: 
+MATCH (j:Jurado)-[r:JOGOU]->(g:Game) WHERE r.nota >= 7 RETURN g.titulo, g.genero, g.ano, r.nota, r.horas, j.nome
+
+
+Q2:
+
+1:
+
+CREATE(g:Game{titulo:'Elden Ring',genero:'RPG',ano:2022});
+CREATE(g:Game{titulo:'Dark Souls 3',genero:'Soulslike',ano:2016});
+CREATE(g:Game{titulo:'Rocket League',genero:'Simulador corrida',ano:2015});
+CREATE(g:Game{titulo:'World of Warcraft',genero:'MMORPG',ano:2004});
+
+2:
+
+CREATE(j:Jurado{nome:'Jurado1'});
+CREATE(j:Jurado{nome:'Jurado2'});
+CREATE(j:Jurado{nome:'Jurado2'});
+
+3:
+
+MATCH(j:Jurado{nome:'Jurado1'}),(g:Game{titulo:'Dark Souls 3'})
+CREATE(j)-[:JOGOU{nota:10, horas:100}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado1'}),(g:Game{titulo:'Rocket League'})
+CREATE(j)-[:JOGOU{nota:10, horas:50}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado1'}),(g:Game{titulo:'World of Warcraft'})
+CREATE(j)-[:JOGOU{nota:10, horas:40}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado1'}),(g:Game{titulo:'Elden Ring'})
+CREATE(j)-[:JOGOU{nota:10, horas:140}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado2'}),(g:Game{titulo:'Dark Souls 3'})
+CREATE(j)-[:JOGOU{nota:10, horas:100}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado2'}),(g:Game{titulo:'Rocket League'})
+CREATE(j)-[:JOGOU{nota:10, horas:50}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado2'}),(g:Game{titulo:'World of Warcraft'})
+CREATE(j)-[:JOGOU{nota:10, horas:40}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado2'}),(g:Game{titulo:'Elden Ring'})
+CREATE(j)-[:JOGOU{nota:10, horas:140}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado3'}),(g:Game{titulo:'Dark Souls 3'})
+CREATE(j)-[:JOGOU{nota:10, horas:100}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado3'}),(g:Game{titulo:'Rocket League'})
+CREATE(j)-[:JOGOU{nota:10, horas:50}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado3'}),(g:Game{titulo:'World of Warcraft'})
+CREATE(j)-[:JOGOU{nota:10, horas:40}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado3'}),(g:Game{titulo:'Elden Ring'})
+CREATE(j)-[:JOGOU{nota:10, horas:140}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado2'}),(g:Game{titulo:'Devour'})
+CREATE(j)-[:JOGOU{nota:10, horas:500}]->(g);
+
+MATCH(j:Jurado{nome:'Jurado1'}),(g:Game{titulo:'Warzone'})
+CREATE(j)-[:JOGOU{nota:10, horas: 1000}]->(g);
