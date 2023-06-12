@@ -16,7 +16,7 @@ class Device:
 
     @staticmethod
     def deserialize(data):
-        return Device(data["user_id"], data["name"], data["status"], data["temperature"])
+        return Device(data["user_id"], data["name"], data["status"], data["temperature"], _id=str(data["_id"]))
 
     @staticmethod
     def get_schema():

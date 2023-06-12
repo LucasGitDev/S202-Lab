@@ -11,6 +11,7 @@ class UserRepository:
     
     def create_user(self, user: User) -> None:
         # Salvar o usuário no banco de dados usando a instância de Database
+        del user._id
         collection = self.db.get_collection("users")
         collection.insert_one(user.__dict__)
 
@@ -22,7 +23,6 @@ class UserRepository:
     def get_user_by_email(self, email: str) -> Optional[User]:
         collection = self.db.get_collection("users")
         user = collection.find_one({"email": email})
-        print(user)
         if user:
             return User(**user)
         else:

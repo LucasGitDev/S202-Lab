@@ -104,7 +104,7 @@ def list_devices():
 
     click.echo("Dispositivos do usuário:")
     for device in devices:
-        click.echo(f"Nome: {device.name}, Status: {device.status}, Temperatura: {device.temperature}")
+        click.echo(f"Nome: {device.name}")
 
 
 def update_device():
@@ -204,7 +204,8 @@ def turn_on_device():
     for device in devices:
         if device.name == device_name:
             device_repo = state['device_repo']
-            device_repo.update_device(name=device.name, user_id=device.user_id, status=True, temperature=None)
+            device.status = True
+            device_repo.update_device(device._id, device)
             click.echo("Dispositivo ligado com sucesso!")
             return
 
@@ -231,7 +232,8 @@ def turn_off_device():
     for device in devices:
         if device.name == device_name:
             device_repo = state['device_repo']
-            device_repo.update_device(name=device.name, user_id=device.user_id, status=False, temperature=None)
+            device.status = False
+            device_repo.update_device(device._id, device)
             click.echo("Dispositivo desligado com sucesso!")
             return
 

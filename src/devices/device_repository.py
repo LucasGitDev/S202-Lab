@@ -3,6 +3,9 @@ from devices.devices import Device
 from typing import List, Optional
 import re
 
+import bson
+
+
 class DeviceRepository:
     def __init__(self, database: Database):
         self.db = database
@@ -27,18 +30,16 @@ class DeviceRepository:
         else:
             return None
 
-    def update_device(self, user_id: Optional[str], name: str, status: Optional[bool], temperature: Optional[float]) -> None:
+    def update_device(self, device_id: Optional[str], device: Device) -> None:
         collection = self.db.get_collection("devices")
-        update_fields = {}
-        if status is not None:
-            update_fields["status"] = status
-        if temperature is not None:
-            update_fields["temperature"] = temperature
-        collection.update_one({"name": name, "user_id": user_id}, {"$set": update_fields})
+        del device._id
+        collection.update_one({"_id": bson.ObjectId(device_id)}, {
+                              "$set": device.__dict__})
 
-    def delete_device(self, name: str) -> None:
+    def delete_device(self, id: str) -> None:
         collection = self.db.get_collection("devices")
-        collection.delete_one({"name": name})
+        collection.delete_one({"_id": bson.ObjectId(id)})
+        
 
     def find_all(self):
         collection = self.db.get_collection("devices")

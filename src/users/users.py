@@ -26,7 +26,7 @@ class User:
     @staticmethod
     def deserialize(data):
         devices = [Device.deserialize(device_data) for device_data in data.get("devices", [])]
-        return User(data["name"], data["email"], devices)
+        return User(data["name"], data["email"], devices, _id=str(data["_id"]))
 
     @staticmethod
     def get_schema():
